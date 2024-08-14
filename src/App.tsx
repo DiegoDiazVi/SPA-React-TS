@@ -1,7 +1,9 @@
-import './App.css';
-
-function App() {
-  return <></>;
+function App(): JSX.Element {
+  return (
+    <>
+      <h1>Heroes App</h1>
+    </>
+  );
 }
 
 export default App;
