@@ -6,7 +6,7 @@ export const Navbar = (): JSX.Element => {
   };
 
   return (
-    <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
+    <nav className="navbar navbar-expand-sm navbar-dark bg-dark p-2">
       <Link className="navbar-brand" to="/">
         Heroes App
       </Link>
@@ -29,14 +29,10 @@ export const Navbar = (): JSX.Element => {
         </div>
       </div>
 
-      <div className="navbar-collapse collapse w-100 order-3 dual-collapse2">
+      <div className="navbar-collapse collapse w-100 order-3 dual-collapse2 d-flex justify-content-end">
         <ul className="navbar-nav ml-auto">
-          <NavLink
-            className={(data: NavLinkRenderProps) => getNavLinkClass(data)}
-            to="/login"
-          >
-            Logout
-          </NavLink>
+          <span className="nav-item nav-link text-primary">Diego</span>
+          <button className="nav-item nav-link btn">Logout</button>
         </ul>
       </div>
     </nav>
