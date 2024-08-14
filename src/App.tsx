@@ -1,7 +1,9 @@
+import { AppRouter } from './router/AppRouter';
+
 function App(): JSX.Element {
   return (
     <>
-      <h1>Heroes App</h1>
+      <AppRouter />
     </>
   );
 }
