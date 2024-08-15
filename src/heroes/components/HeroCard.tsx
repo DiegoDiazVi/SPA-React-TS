@@ -11,26 +11,40 @@ export const HeroCard = ({ hero }: HeroCardProps): JSX.Element => {
   const imagePath = `../../../assets/${id}.jpg`;
 
   return (
-    <div className="col">
-      <div className="card">
+    <article className="col" aria-label={`Card for ${superhero}`}>
+      <section className="card">
         <div className="row no-gutter">
-          <figure className="col-4">
-            <img src={imagePath} alt={superhero} className="card-img" />
+          <figure className="col-4" role="img">
+            <img
+              src={imagePath}
+              alt={`Image of ${superhero}, also known as ${alter_ego}`}
+              className="card-img"
+            />
           </figure>
-          <div className="col-8">
-            <div className="card-body">
-              <h5 className="card-title">{superhero}</h5>
-              <p className="card-text">{alter_ego}</p>
-              {alter_ego !== characters && (
-                <p className="card-text">{characters}</p>
-              )}
-              <p className="card-tex">
-                <small className="text-muted">{first_appearance}</small>
+
+          <section className="col-8">
+            <section className="card-body">
+              <h2 className="card-title">{superhero}</h2>
+              <p className="card-text" aria-label={`Alter ego: ${alter_ego}`}>
+                {alter_ego}
               </p>
-            </div>
-          </div>
+              {alter_ego !== characters && (
+                <p
+                  className="card-text"
+                  aria-label={`Other characters: ${characters}`}
+                >
+                  {characters}
+                </p>
+              )}
+              <p className="card-text">
+                <small className="text-muted">
+                  First appearance: {first_appearance}
+                </small>
+              </p>
+            </section>
+          </section>
         </div>
-      </div>
-    </div>
+      </section>
+    </article>
   );
 };
