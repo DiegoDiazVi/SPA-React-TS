@@ -1,7 +1,11 @@
 import type { Hero, Publisher } from '../../types/types';
 import { getDataByPublisher } from '../utils/getHeroesByPublisher';
 
-export const HeroList = (publisher: Publisher): JSX.Element => {
+interface HeroListProps {
+  publisher: Publisher;
+}
+
+export const HeroList = ({ publisher }: HeroListProps): JSX.Element => {
   const heroes: Hero[] = getDataByPublisher(publisher);
 
   return (
