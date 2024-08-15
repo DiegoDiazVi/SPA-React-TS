@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import type { Hero, Publisher } from '../../types/types';
 import { getDataByPublisher } from '../utils/getHeroesByPublisher';
 
@@ -5,7 +6,7 @@ interface HeroListProps {
   publisher: Publisher;
 }
 
-export const HeroList = ({ publisher }: HeroListProps): JSX.Element => {
+export const HeroList = memo(({ publisher }: HeroListProps): JSX.Element => {
   const heroes: Hero[] = getDataByPublisher(publisher);
 
   return (
@@ -15,4 +16,4 @@ export const HeroList = ({ publisher }: HeroListProps): JSX.Element => {
       ))}
     </ul>
   );
-};
+});
