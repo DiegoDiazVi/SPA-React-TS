@@ -14,7 +14,7 @@ export const Navbar = (): JSX.Element => {
   };
 
   const handleLogout = (): void => {
-    navigate('/login');
+    navigate('/login', { replace: true });
   };
 
   return (
