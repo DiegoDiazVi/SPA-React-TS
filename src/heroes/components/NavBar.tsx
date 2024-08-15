@@ -7,12 +7,23 @@ import {
 } from 'react-router-dom';
 
 export const Navbar = (): JSX.Element => {
+  /**
+   * Navigates to a different route.
+   */
   const navigate: NavigateFunction = useNavigate();
 
+  /**
+   * Returns the CSS class for a navigation link based on its active state.
+   * @param {NavLinkRenderProps} props - The props for the navigation link.
+   * @returns {string} The CSS class for the navigation link.
+   */
   const getNavLinkClass = ({ isActive }: NavLinkRenderProps): string => {
     return `nav-item nav-link ${isActive ? 'active' : ''} `;
   };
 
+  /**
+   * Handles the logout action.
+   */
   const handleLogout = (): void => {
     navigate('/login', { replace: true });
   };
