@@ -28,7 +28,7 @@ export const HeroPage = (): JSX.Element => {
           <img
             src={`../../../assets/${id}.jpg`}
             alt={hero.superhero}
-            className="img-thumbnail"
+            className="img-thumbnail animate__animated animate__fadeInLeft"
           />
           <figcaption className="visually-hidden">
             Image of {hero.superhero}

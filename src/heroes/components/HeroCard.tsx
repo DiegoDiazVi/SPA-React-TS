@@ -11,9 +11,12 @@ export const HeroCard = ({ hero }: HeroCardProps): JSX.Element => {
   const imagePath = `../../../assets/${id}.jpg`;
 
   return (
-    <article className="col" aria-label={`Card for ${superhero}`}>
+    <article
+      className="col animate__animated animate__bounceInLeft"
+      aria-label={`Card for ${superhero}`}
+    >
       <section className="card">
-        <div className="row no-gutter">
+        <div className="row no-gutters ">
           <figure className="col-4" role="img">
             <img
               src={imagePath}
@@ -41,7 +44,9 @@ export const HeroCard = ({ hero }: HeroCardProps): JSX.Element => {
                   First appearance: {first_appearance}
                 </small>
               </p>
-              <Link to={`/hero/${id}`}>More Info</Link>
+              <Link to={`/hero/${id}`} className="btn btn-primary">
+                More Info
+              </Link>
             </section>
           </section>
         </div>
