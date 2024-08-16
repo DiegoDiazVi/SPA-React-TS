@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import {
   Navigate,
   type NavigateFunction,
@@ -8,7 +9,7 @@ import { getHeroById } from '../utils/getHeroById';
 
 export const HeroPage = (): JSX.Element => {
   const { id } = useParams();
-  const hero = getHeroById(id ?? '');
+  const hero = useMemo(() => getHeroById(id ?? ''), [id]);
   const navigate: NavigateFunction = useNavigate();
   const publisherPath = hero?.publisher.split(' ')[0].toLowerCase();
 
