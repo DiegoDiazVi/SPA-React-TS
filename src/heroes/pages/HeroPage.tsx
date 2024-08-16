@@ -21,36 +21,45 @@ export const HeroPage = (): JSX.Element => {
   };
 
   return (
-    <div className="row mt-5">
-      <div className="col-4">
-        <img
-          src={`../../../assets/${id}.jpg`}
-          alt={hero.superhero}
-          className="img-thumbnail"
-        />
-      </div>
-      <div className="col-8">
-        <h3>{hero.superhero}</h3>
-        <ul className="list-group list-group-flush">
-          <li className="list-group-item">
-            <b>Alter ego: </b>
-            {hero.alter_ego}
-          </li>
-          <li className="list-group-item">
-            <b>Publisher: </b>
-            {hero.publisher}
-          </li>
-          <li className="list-group-item">
-            <b>Appearance: </b>
-            {hero.first_appearance}
-          </li>
-        </ul>
-        <h5 className="mt-3">Characters</h5>
-        <p>{hero.characters}</p>
-        <button className="btn btn-outline-primary" onClick={handleClickReturn}>
-          Back
-        </button>
-      </div>
-    </div>
+    <section className="container mt-5">
+      <article className="row">
+        <figure className="col-md-4">
+          <img
+            src={`../../../assets/${id}.jpg`}
+            alt={hero.superhero}
+            className="img-thumbnail"
+          />
+          <figcaption className="visually-hidden">
+            Image of {hero.superhero}
+          </figcaption>
+        </figure>
+        <article className="col-md-8">
+          <header>
+            <h3>{hero.superhero}</h3>
+          </header>
+          <ul className="list-group list-group-flush">
+            <li className="list-group-item">
+              <strong>Alter ego:</strong> {hero.alter_ego}
+            </li>
+            <li className="list-group-item">
+              <strong>Publisher:</strong> {hero.publisher}
+            </li>
+            <li className="list-group-item">
+              <strong>Appearance:</strong> {hero.first_appearance}
+            </li>
+          </ul>
+          <section className="mt-3">
+            <h5>Characters</h5>
+            <p>{hero.characters}</p>
+          </section>
+          <button
+            className="btn btn-outline-primary"
+            onClick={handleClickReturn}
+          >
+            Back
+          </button>
+        </article>
+      </article>
+    </section>
   );
 };
