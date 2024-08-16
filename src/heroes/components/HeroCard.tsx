@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import type { Hero } from '../../types/types';
 
 interface HeroCardProps {
@@ -24,7 +25,7 @@ export const HeroCard = ({ hero }: HeroCardProps): JSX.Element => {
 
           <section className="col-8">
             <section className="card-body">
-              <h2 className="card-title">{superhero}</h2>
+              <h3 className="card-title">{superhero}</h3>
               <p className="card-text" aria-label={`Alter ego: ${alter_ego}`}>
                 {alter_ego}
               </p>
@@ -41,6 +42,7 @@ export const HeroCard = ({ hero }: HeroCardProps): JSX.Element => {
                   First appearance: {first_appearance}
                 </small>
               </p>
+              <Link to={`/hero/${id}`}>More Info</Link>
             </section>
           </section>
         </div>
