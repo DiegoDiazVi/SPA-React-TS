@@ -6,8 +6,7 @@ interface HeroCardProps {
 }
 
 export const HeroCard = ({ hero }: HeroCardProps): JSX.Element => {
-  const { id, superhero, publisher, alter_ego, first_appearance, characters } =
-    hero;
+  const { id, superhero, alter_ego, first_appearance, characters } = hero;
 
   const imagePath = `../../../assets/${id}.jpg`;
 
