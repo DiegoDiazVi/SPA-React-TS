@@ -54,10 +54,14 @@ export const SearchPage = (): JSX.Element => {
           <hr />
 
           {showSearch && (
-            <div className="alert alert-primary">Search a hero</div>
+            <div className="alert alert-primary animate__animated animate__fadeIn">
+              Search a hero
+            </div>
           )}
           {showError && (
-            <div className="alert alert-danger">There is not result</div>
+            <div className="alert alert-danger animate__animated animate__fadeInUp">
+              There is not result
+            </div>
           )}
 
           {heroes?.map((hero) => (
