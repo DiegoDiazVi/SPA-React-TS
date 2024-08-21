@@ -14,7 +14,8 @@ export const SearchPage = (): JSX.Element => {
 
   const heroes = getHeroByName(q as string);
 
-  console.log(heroes);
+  const showError = heroes?.length === 0 && q !== '';
+  const showSearch = q === '';
 
   const handleSearchSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
@@ -52,8 +53,12 @@ export const SearchPage = (): JSX.Element => {
           <h4>Results</h4>
           <hr />
 
-          <div className="alert alert-primary">Search a hero</div>
-          <div className="alert alert-danger">There is not result</div>
+          {showSearch && (
+            <div className="alert alert-primary">Search a hero</div>
+          )}
+          {showError && (
+            <div className="alert alert-danger">There is not result</div>
+          )}
 
           {heroes?.map((hero) => (
             <HeroCard key={hero.id} hero={hero} />
