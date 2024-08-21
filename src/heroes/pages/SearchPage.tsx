@@ -1,6 +1,8 @@
+import { useNavigate } from 'react-router-dom';
 import { useForm } from '../hooks/useForm';
 
 export const SearchPage = (): JSX.Element => {
+  const navigate = useNavigate();
   const { formState, onInputChange, onResetForm } = useForm({
     searchText: '',
   });
@@ -10,6 +12,7 @@ export const SearchPage = (): JSX.Element => {
     const { searchText } = formState;
     if (searchText.trim().length === 0) return;
     onResetForm();
+    navigate(`?q=${searchText.toLowerCase().trim()}`);
   };
   return (
     <>
