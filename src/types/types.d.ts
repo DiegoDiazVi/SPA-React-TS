@@ -8,3 +8,18 @@ export interface Hero {
   first_appearance: string;
   characters: string;
 }
+
+export interface FormState {
+  onInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onResetForm: () => void;
+  formState: { [key: string]: string };
+}
+
+export interface SearchHook {
+  searchText: string;
+  onInputChange: (evt: React.ChangeEvent<HTMLInputElement>) => void;
+  handleSearchSubmit: (evt: React.FormEvent<HTMLFormElement>) => void;
+  heroes: Hero[] | undefined;
+  showError: boolean;
+  showSearch: boolean;
+}
