@@ -1,8 +1,12 @@
-import { useNavigate } from 'react-router-dom';
+import queryString from 'query-string';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from '../hooks/useForm';
 
 export const SearchPage = (): JSX.Element => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const { q = '' } = queryString.parse(location.search);
+
   const { formState, onInputChange, onResetForm } = useForm({
     searchText: '',
   });
@@ -11,9 +15,10 @@ export const SearchPage = (): JSX.Element => {
     evt.preventDefault();
     const { searchText } = formState;
     if (searchText.trim().length === 0) return;
-    onResetForm();
     navigate(`?q=${searchText.toLowerCase().trim()}`);
+    onResetForm();
   };
+
   return (
     <>
       <h2 className="mt-5">Search page</h2>
@@ -43,7 +48,7 @@ export const SearchPage = (): JSX.Element => {
           <hr />
 
           <div className="alert alert-primary">Search a hero...</div>
-          <div className="alert alert-danger">There is not result</div>
+          <div className="alert alert-danger">There is not result {q}</div>
         </div>
       </div>
     </>
