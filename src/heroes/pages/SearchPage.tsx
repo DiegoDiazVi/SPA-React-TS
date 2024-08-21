@@ -1,4 +1,16 @@
+import { useForm } from '../hooks/useForm';
+
 export const SearchPage = (): JSX.Element => {
+  const { formState, onInputChange, onResetForm } = useForm({
+    searchText: '',
+  });
+
+  const handleSearchSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
+    evt.preventDefault();
+    const { searchText } = formState;
+    if (searchText.trim().length === 0) return;
+    onResetForm();
+  };
   return (
     <>
       <h2 className="mt-5">Search page</h2>
@@ -9,13 +21,15 @@ export const SearchPage = (): JSX.Element => {
           <h4>Searching</h4>
           <hr />
 
-          <form>
+          <form onSubmit={handleSearchSubmit}>
             <input
               type="text"
               placeholder="Search a hero"
               className="form-control"
               name="searchText"
               autoComplete="off"
+              value={formState.searchText}
+              onChange={onInputChange}
             />
             <button className="btn btn-outline-primary mt-2">Search</button>
           </form>
