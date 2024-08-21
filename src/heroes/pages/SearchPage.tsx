@@ -1,30 +1,15 @@
-import queryString from 'query-string';
-import { useLocation, useNavigate } from 'react-router-dom';
 import { HeroCard } from '../components/HeroCard';
-import { useForm } from '../hooks/useForm';
-import { getHeroByName } from '../utils/getHeroresByName';
+import { useSearch } from '../hooks/useSearch';
 
 export const SearchPage = (): JSX.Element => {
-  const navigate = useNavigate();
-  const location = useLocation();
-  const { q = '' } = queryString.parse(location.search);
-  const { formState, onInputChange, onResetForm } = useForm({
-    searchText: '',
-  });
-
-  const heroes = getHeroByName(q as string);
-
-  const showError = heroes?.length === 0 && q !== '';
-  const showSearch = q === '';
-
-  const handleSearchSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
-    evt.preventDefault();
-    const { searchText } = formState;
-    if (searchText.trim().length === 0) return;
-    navigate(`?q=${searchText.toLowerCase().trim()}`);
-    onResetForm();
-  };
-
+  const {
+    searchText,
+    handleSearchSubmit,
+    onInputChange,
+    showError,
+    showSearch,
+    heroes,
+  } = useSearch();
   return (
     <>
       <h2 className="mt-5">Search page</h2>
@@ -42,7 +27,7 @@ export const SearchPage = (): JSX.Element => {
               className="form-control"
               name="searchText"
               autoComplete="off"
-              value={formState.searchText}
+              value={searchText}
               onChange={onInputChange}
             />
             <button className="btn btn-outline-primary mt-2">Search</button>
