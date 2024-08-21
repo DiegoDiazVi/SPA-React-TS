@@ -23,3 +23,17 @@ export interface SearchHook {
   showError: boolean;
   showSearch: boolean;
 }
+
+export interface AuthProviderProps {
+  children: React.ReactNode;
+}
+
+export interface AuthState {
+  logged: boolean;
+  name: string;
+}
+
+export interface AuthAction {
+  type: string;
+  payload?: string;
+}
