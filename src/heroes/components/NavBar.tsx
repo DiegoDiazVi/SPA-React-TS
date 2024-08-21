@@ -49,6 +49,12 @@ export const Navbar = (): JSX.Element => {
           >
             DC
           </NavLink>
+          <NavLink
+            className={(data: NavLinkRenderProps) => getNavLinkClass(data)}
+            to="/search"
+          >
+            Search
+          </NavLink>
         </div>
       </div>
 
