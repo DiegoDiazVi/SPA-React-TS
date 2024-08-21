@@ -1,15 +1,19 @@
 import queryString from 'query-string';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { Hero } from '../../types/types';
+import { HeroCard } from '../components/HeroCard';
 import { useForm } from '../hooks/useForm';
+import { getHeroByName } from '../utils/getHeroresByName';
 
 export const SearchPage = (): JSX.Element => {
   const navigate = useNavigate();
   const location = useLocation();
   const { q = '' } = queryString.parse(location.search);
-
   const { formState, onInputChange, onResetForm } = useForm({
     searchText: '',
   });
+
+  const heroes = getHeroByName(q as string) as Hero[];
 
   const handleSearchSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
@@ -48,7 +52,11 @@ export const SearchPage = (): JSX.Element => {
           <hr />
 
           <div className="alert alert-primary">Search a hero...</div>
-          <div className="alert alert-danger">There is not result {q}</div>
+          <div className="alert alert-danger">There is not result</div>
+
+          {heroes.map((hero) => (
+            <HeroCard key={hero.id} hero={hero} />
+          ))}
         </div>
       </div>
     </>
