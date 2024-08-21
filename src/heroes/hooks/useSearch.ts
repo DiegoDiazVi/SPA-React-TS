@@ -21,7 +21,7 @@ export function useSearch(): SearchHook {
 
   const handleSearchSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
-    if (searchText.trim().length === 0) return;
+    if (!searchText.trim()) return;
     navigate(`?q=${searchText.toLowerCase().trim()}`);
     onResetForm();
   };
