@@ -37,3 +37,8 @@ export interface AuthAction {
   type: string;
   payload?: string;
 }
+
+export interface AuthContextType {
+  authState: AuthState;
+  dispatch: Dispatch<AuthAction>;
+}
