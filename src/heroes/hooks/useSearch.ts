@@ -7,7 +7,7 @@ import { useForm } from './useForm';
 export function useSearch(): SearchHook {
   const navigate = useNavigate();
   const location = useLocation();
-  const { q = '' } = queryString.parse(location.search);
+  const { q = '' } = queryString.parse(location.search) as { q: string };
   const { formState, onInputChange, onResetForm } = useForm({
     searchText: '',
   });
