@@ -1,17 +1,8 @@
 import queryString from 'query-string';
 import { useLocation, useNavigate } from 'react-router-dom';
-import type { Hero } from '../../types/types';
+import type { SearchHook } from '../../types/types';
 import { getHeroByName } from '../utils/getHeroresByName';
 import { useForm } from './useForm';
-
-interface SearchHook {
-  searchText: string;
-  onInputChange: (evt: React.ChangeEvent<HTMLInputElement>) => void;
-  handleSearchSubmit: (evt: React.FormEvent<HTMLFormElement>) => void;
-  heroes: Hero[] | undefined;
-  showError: boolean;
-  showSearch: boolean;
-}
 
 export function useSearch(): SearchHook {
   const navigate = useNavigate();

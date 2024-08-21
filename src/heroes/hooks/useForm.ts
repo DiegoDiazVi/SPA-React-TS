@@ -1,10 +1,5 @@
 import { useState } from 'react';
-
-interface FormState {
-  onInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  onResetForm: () => void;
-  formState: { [key: string]: string };
-}
+import type { FormState } from '../../types/types';
 
 export const useForm = (initialForm = {}): FormState => {
   const [formState, setFormState] = useState(initialForm);
