@@ -1,4 +1,3 @@
-```markdown
 # React SPA with Context, Reducer, React Router DOM v6, and TypeScript
 
 ## Overview
@@ -38,4 +37,3 @@ This project is a Single Page Application (SPA) built with React and TypeScript,
 ## Conclusion
 
 This React SPA is a robust, scalable application that efficiently manages state and navigation. By leveraging Context API, Reducer, and React Router DOM v6, it provides a secure and testable environment for both developers and users.
-```
