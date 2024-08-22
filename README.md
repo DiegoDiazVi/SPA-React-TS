@@ -1,51 +1,41 @@
-# React + TypeScript + Vite
+```markdown
+# React SPA with Context, Reducer, React Router DOM v6, and TypeScript
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+This project is a Single Page Application (SPA) built with React and TypeScript, utilizing Context API, Reducer, and React Router DOM v6. The primary goal of this application is to manage navigation, state, and authentication efficiently, while providing a robust routing structure that includes both public and private routes.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Key Features
 
-## Expanding the ESLint configuration
+- **MemoryRouter for Testing**:
+  - The application uses `MemoryRouter` to simulate URLs, route segments, `queryParams`, and `queryStrings`. This setup is ideal for testing and debugging the application's routing logic without needing a real browser environment.
+- **Context and Reducer for State Management**:
+  - The global state of the application is managed using Context API and a `reducer`. This approach centralizes state management, making it easier to handle complex state transitions and actions across different components.
+- **Public and Private Routes**:
+  - The routing is handled by React Router DOM v6, allowing the creation of both public and private routes. Private routes are protected and only accessible to authenticated users, ensuring secure access control within the application.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Project Structure
 
-- Configure the top-level `parserOptions` property like this:
+- **Context API**: Provides a way to share the global state across various components without prop drilling.
+- **Reducer**: Manages complex state transitions in a predictable manner through a centralized `reducer` function.
+- **MemoryRouter**: Simulates the application's navigation, helping developers to test different routing scenarios effectively.
+- **React Router DOM v6**: Facilitates the creation of a dynamic routing system with support for both public and private routes.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## How It Works
+
+1. **State Management**:
+
+   - The global state is managed via a combination of Context API and a reducer. This allows the application to maintain a consistent and predictable state across different routes and components.
+
+2. **Routing**:
+
+   - `MemoryRouter` is used to simulate navigation within the app, making it easier to test how different parts of the app behave under various URL structures, `queryParams`, and `queryStrings`.
+   - React Router DOM v6 is utilized to define the app's routing structure, including the implementation of protected routes that require authentication.
+
+3. **Authentication**:
+   - The application differentiates between public and private routes. Private routes are gated by authentication checks, ensuring that sensitive parts of the app are not accessible without proper authorization.
+
+## Conclusion
+
+This React SPA is a robust, scalable application that efficiently manages state and navigation. By leveraging Context API, Reducer, and React Router DOM v6, it provides a secure and testable environment for both developers and users.
 ```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
-# SPA-React-TS
