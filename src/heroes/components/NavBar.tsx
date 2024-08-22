@@ -9,7 +9,7 @@ import {
 import { AuthContext } from '../../auth/context/AuthContext';
 
 export const Navbar = (): JSX.Element => {
-  const { authState } = useContext(AuthContext) || {};
+  const { authState, onLogout = () => {} } = useContext(AuthContext) || {};
   const { name: userName } = authState || {};
   /**
    * Navigates to a different route.
@@ -29,6 +29,7 @@ export const Navbar = (): JSX.Element => {
    * Handles the logout action.
    */
   const handleLogout = (): void => {
+    onLogout();
     navigate('/login', { replace: true });
   };
 
