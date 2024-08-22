@@ -9,8 +9,8 @@ import {
 import { AuthContext } from '../../auth/context/AuthContext';
 
 export const Navbar = (): JSX.Element => {
-  const { authState, onLogout = () => {} } = useContext(AuthContext) || {};
-  const { name: userName } = authState || {};
+  const { authState, onLogout } = useContext(AuthContext);
+  const { name: userName } = authState;
   /**
    * Navigates to a different route.
    */
