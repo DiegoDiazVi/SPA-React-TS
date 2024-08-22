@@ -40,5 +40,6 @@ export interface AuthAction {
 
 export interface AuthContextType {
   authState: AuthState;
-  dispatch: Dispatch<AuthAction>;
+  onLogin: (name: string) => void;
+  onLogout: () => void;
 }
