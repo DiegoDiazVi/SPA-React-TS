@@ -1,4 +1,4 @@
-import { createContext, useReducer } from 'react';
+import { createContext, useEffect, useReducer } from 'react';
 import type {
   AuthContextType,
   AuthProviderProps,
@@ -14,8 +14,18 @@ const initialAuthState: AuthState = {
   name: '',
 };
 
+const init = (): AuthState => {
+  const user = localStorage.getItem('user');
+  if (user) return JSON.parse(user);
+  return initialAuthState;
+};
+
 export const AuthProviver = ({ children }: AuthProviderProps): JSX.Element => {
-  const [authState, dispatch] = useReducer(authReducer, initialAuthState);
+  const [authState, dispatch] = useReducer(authReducer, initialAuthState, init);
+
+  useEffect(() => {
+    localStorage.setItem('user', JSON.stringify(authState));
+  }, [authState]);
 
   const onLogin = (name: string): void => {
     dispatch({ type: typesReducer.login, payload: name });
