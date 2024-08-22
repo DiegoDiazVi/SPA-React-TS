@@ -7,12 +7,16 @@ import type {
 import { typesReducer } from '../constants/constants';
 import { authReducer } from './authReducer';
 
-export const AuthContext = createContext<AuthContextType | null>(null);
-
 const initialAuthState: AuthState = {
   logged: false,
   name: '',
 };
+
+export const AuthContext = createContext<AuthContextType>({
+  authState: initialAuthState,
+  onLogin: () => {},
+  onLogout: () => {},
+});
 
 const init = (): AuthState => {
   const user = localStorage.getItem('user');
